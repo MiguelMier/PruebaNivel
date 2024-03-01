@@ -9,7 +9,7 @@ public class Controlador {
         this.puntuacion = 0;
     }
 
-    public void start() {
+    public void comprobarContrasena() {
         leerContrasena();
         calcularPuntuacion();
         permitirAcceso();

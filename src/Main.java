@@ -6,7 +6,7 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
         Controlador c = new Controlador();
-        c.start();
+        c.comprobarContrasena();
 
 
     }
