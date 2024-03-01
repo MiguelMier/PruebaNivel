@@ -4,6 +4,7 @@ public class Controlador {
 
     private int puntuacion;
     private String contrasena;
+    private final int PUNTUACION_MINIMA = 8;
 
     public Controlador() {
         this.puntuacion = 0;
@@ -90,7 +91,7 @@ public class Controlador {
     }
 
     private void permitirAcceso() {
-        if (puntuacion >= 8) {
+        if (puntuacion >= PUNTUACION_MINIMA) {
             System.out.println("Acceso permitido");
             System.out.println("Su puntuación de contraseña es: " + puntuacion);
         } else {
