@@ -45,35 +45,35 @@ public class Controlador {
     }
 
     private void puntuacionNumeros() {
-        boolean tempNum = false;
+        boolean hayNumero = false;
         for (int i = 0; i < contrasena.length(); i++) {
             if (contrasena.substring(i).matches("[0-9]")) {
-                tempNum = true;
+                hayNumero = true;
             }
         }
-        if (tempNum) {
+        if (hayNumero) {
             puntuacion++;
         }
     }
 
     private void puntuacionLetrasMinusMayus() {
-        boolean tempLetra = false;
-        boolean tempMayus = false;
+        boolean hayLetraMinuscula = false;
+        boolean hayLetraMayuscula = false;
 
         for (int i = 0; i < contrasena.length(); i++) {
             char caracter = contrasena.charAt(i);
             if (Character.isLowerCase(caracter)) {
-                tempLetra = true;
+                hayLetraMinuscula = true;
             } else if (Character.isUpperCase(caracter)) {
-                tempMayus = true;
+                hayLetraMayuscula = true;
             }
         }
 
-        if (tempLetra || tempMayus) {
+        if (hayLetraMinuscula || hayLetraMayuscula) {
             puntuacion++;
         }
 
-        if (tempLetra && tempMayus) {
+        if (hayLetraMinuscula && hayLetraMayuscula) {
             puntuacion += 2;
         }
     }
