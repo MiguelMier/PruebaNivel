@@ -1,6 +1,6 @@
-package model.calculadoras;
+package model.validador;
 
-public class CalculadoraLongitud implements Calcular{
+public class CalculadoraLongitud implements Validador {
 
     public int calcular(String password){
         int longitud = password.length();

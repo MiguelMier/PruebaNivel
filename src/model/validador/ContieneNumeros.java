@@ -1,10 +1,10 @@
-package model.calculadoras;
+package model.validador;
 
-public class ContieneLetrasMinus implements Calcular{
+public class ContieneNumeros implements Validador {
 
     public int calcular(String password){
         for (char c : password.toCharArray()) {
-            if (Character.isLowerCase(c)) {
+            if (Character.isDigit(c)) {
                 return 1;
             }
         }

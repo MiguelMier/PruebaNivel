@@ -1,6 +1,6 @@
-package model.calculadoras;
+package model.validador;
 
-public class ContieneCaracterEspecial implements Calcular{
+public class ContieneCaracterEspecial implements Validador {
 
     public int calcular(String password){
         if(!password.matches("^[a-zA-Z0-9]*$")){

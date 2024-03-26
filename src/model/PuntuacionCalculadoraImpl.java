@@ -1,6 +1,6 @@
 package model;
 
-import model.calculadoras.Calcular;
+import model.validador.Validador;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,9 +8,9 @@ import java.util.List;
 
 public class PuntuacionCalculadoraImpl implements PuntuacionCalculadora{
 
-    private List<Calcular> calculadoras;
+    private List<Validador> calculadoras;
 
-    public PuntuacionCalculadoraImpl(Calcular... calculadoras) {
+    public PuntuacionCalculadoraImpl(Validador... calculadoras) {
         this.calculadoras = new ArrayList<>();
         this.calculadoras.addAll(Arrays.asList(calculadoras));
 
@@ -20,7 +20,7 @@ public class PuntuacionCalculadoraImpl implements PuntuacionCalculadora{
     public int calcularPuntuacion(String password) {
         int puntuacion = 0;
 
-        for(Calcular c:calculadoras){
+        for(Validador c:calculadoras){
             puntuacion += c.calcular(password);
         }
 

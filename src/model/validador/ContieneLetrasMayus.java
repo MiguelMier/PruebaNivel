@@ -1,6 +1,6 @@
-package model.calculadoras;
+package model.validador;
 
-public class ContieneLetrasMayus implements Calcular{
+public class ContieneLetrasMayus implements Validador {
 
     public int calcular(String password){
         for (char c : password.toCharArray()) {

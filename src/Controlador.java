@@ -1,5 +1,5 @@
 import model.PuntuacionCalculadoraImpl;
-import model.calculadoras.*;
+import model.validador.*;
 
 import java.util.Scanner;
 
@@ -7,11 +7,9 @@ public class Controlador {
 
     private int puntuacion;
     private String contrasena;
-    private Boolean mayusminus;
 
     public Controlador(){
         this.puntuacion = 0;
-        this.mayusminus = false;
     }
 
     public void start(){
@@ -33,7 +31,7 @@ public class Controlador {
 
     private void calcularPuntuacion(){
         PuntuacionCalculadoraImpl calculadora = new PuntuacionCalculadoraImpl(new CalculadoraLongitud(),
-                new ContieneCaracterEspecial(), new ContieneNumeros(), new ContieneLetrasMinus(), new ContieneLetrasMayus());
+                new ContieneCaracterEspecial(), new ContieneNumeros(), new ContieneLetrasMayusYMinus());
         this.puntuacion = calculadora.calcularPuntuacion(contrasena);
     }
 
@@ -47,71 +45,4 @@ public class Controlador {
         }
     }
 
-    /**
-    private void calcularPuntuacion(){
-        calculaLongitud();
-        numeros();
-        letrasMinusMayus();
-        calculaUsoEspeciales();
-        puntoExtra();
-    }
-
-    private void calculaLongitud(){
-        int longitud = contrasena.length();
-
-        if(longitud == 7 || longitud == 8){
-            puntuacion++;
-        } else if (longitud >= 9 && longitud <= 12) {
-            puntuacion += 2;
-        } else if (longitud > 12) {
-            puntuacion += 3;
-        }
-    }
-
-    private void numeros(){
-        boolean tempNum = false;
-         for (int i = 0; i < contrasena.length(); i++){
-            if (contrasena.substring(i).matches("[0-9]")) {
-                tempNum = true;
-            }
-        }
-        if(tempNum){
-            puntuacion++;
-        }
-
-    }
-
-    private void letrasMinusMayus(){
-        boolean tempLetra = false;
-        boolean tempMayus = false;
-        for (int i = 0; i < contrasena.length(); i++){
-            if(contrasena.substring(i).matches("[a-z]")){
-                tempLetra = true;
-            } else if (contrasena.substring(i).matches("[A-Z]")) {
-                tempMayus = true;
-            }
-        }
-        if(tempLetra || tempMayus){
-            puntuacion++;
-        }
-        if(tempLetra && tempMayus){
-            puntuacion += 2;
-        }
-
-    }
-
-    private void calculaUsoEspeciales(){
-        if(!contrasena.matches("^[a-zA-Z0-9]*$")){
-            puntuacion += 2;
-        }
-    }
-
-    private void puntoExtra(){
-        if(puntuacion == 9){
-            puntuacion++;
-        }
-    }
-
-
-    }*/
 }
