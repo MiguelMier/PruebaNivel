@@ -1,5 +1,6 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import model.PuntuacionCalculadoraImpl;
+import model.calculadoras.*;
+
 import java.util.Scanner;
 
 public class Controlador {
@@ -19,6 +20,7 @@ public class Controlador {
         permitirAcceso();
     }
 
+
     private void leerContrasena(){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Intrioduzca su nombre:");
@@ -29,6 +31,23 @@ public class Controlador {
 
     }
 
+    private void calcularPuntuacion(){
+        PuntuacionCalculadoraImpl calculadora = new PuntuacionCalculadoraImpl(new CalculadoraLongitud(),
+                new ContieneCaracterEspecial(), new ContieneNumeros(), new ContieneLetrasMinus(), new ContieneLetrasMayus());
+        this.puntuacion = calculadora.calcularPuntuacion(contrasena);
+    }
+
+    private void permitirAcceso() {
+        if (puntuacion >= 8) {
+            System.out.println("Acceso permitido");
+            System.out.println("Su puntuación de contraseña es: " + puntuacion);
+        } else {
+            System.out.println("Acceso denegado");
+            System.out.println("Su puntuación de contraseña es: " + puntuacion);
+        }
+    }
+
+    /**
     private void calcularPuntuacion(){
         calculaLongitud();
         numeros();
@@ -93,14 +112,6 @@ public class Controlador {
         }
     }
 
-    private void permitirAcceso(){
-        if(puntuacion >= 8){
-            System.out.println("Acceso permitido");
-            System.out.println("Su puntuación de contraseña es: " + puntuacion);
-        }
-        else {
-            System.out.println("Acceso denegado");
-            System.out.println("Su puntuación de contraseña es: " + puntuacion);
-        }
-    }
+
+    }*/
 }
